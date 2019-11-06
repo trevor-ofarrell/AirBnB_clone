@@ -8,7 +8,7 @@ class BaseModel:
     
     """base class for this project"""
     
-    def __init__(self, id=None, created_at=None, updated_at=None):
+    def __init__(self, *args, **kwargs):
 
         """initialization method"""
         
@@ -21,7 +21,7 @@ class BaseModel:
 
         """string rep method"""
 
-        return "[<{}>] (<{}>) <{}>".format("BaseModel", self.id, self.__dict__)
+        return "[{}] ({}) {}".format("BaseModel", self.id, self.__dict__)
 
 
     def save(self):
