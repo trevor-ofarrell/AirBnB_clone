@@ -6,13 +6,21 @@ Foundations - Higher-level programming
 
 This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end 
 Each task is linked and will help you to:
-
-    put in place a parent class (called BaseModel) to take care of the initialization, serialization and deserialization of your future instances
-
+    
+    
+    put in place a parent class (called BaseModel) to take care of the initialization, serialization and deserialization of     your future instances
+    
     create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
-    create all classes used for AirBnB (User, State, City, 
-Placeintegration
+    
+    create all classes used for AirBnB (User, State, City, Place…) that inherit from BaseModel
+    
+    create the first abstracted storage engine of the project: File storage.
+    
+    create all unittests to validate all our classes and storage engine
 
+
+
+    
 ## Learning Objectives
 
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
@@ -62,10 +70,12 @@ Python Scripts
     All your modules should have a documentation (python3 -c 'print(__import__("my_module").__doc__)')
     All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
     All your functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
-    We strongly encourage you to work together on test cases, so that you t miss any edge case
-don
+    We strongly encourage you to work together on test cases, so that you don't miss any edge case
+
 
 ## More Info
+```
+
 Execution
 
 Your shell should work like this in interactive mode:
@@ -103,3 +113,5 @@ Documented commands (type help <topic>):
 EOF  help  quit
 (hbnb) 
 $
+
+```
