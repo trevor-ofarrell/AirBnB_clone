@@ -30,14 +30,14 @@ class FileStorage():
 
         """serializes __objects to the JSON file (path: __file_path)"""
 
-        json.dumps(__objects, self.__file_path)
+        json.dumps(self.__objects, self.__file_path)
 
     def reload(self):
 
         """        deserializes the JSON file to __objects (only if 
         the JSON file (__file_path) exists ; otherwise, do nothing"""
 
-        if self.__file_path is not None:
+        if self.__file_path:
 
             __object = json.load(self.__file_path)
         
