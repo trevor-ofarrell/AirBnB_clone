@@ -18,37 +18,33 @@ class FileStorage():
 
         """public instance method to return the dictionary __objects"""
 
-        return self.__objects
+        return FileStorage.__objects
 
     def new(self, obj):
 
         """sets in __objects the obj with key <obj class name>.id"""
 
-        x = { "{}.{}".format(obj.__class__.__name__, obj.id): obj.to_dict() }
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
         
-        x.update(self.__objects)
-
+        FileStorage.__objects[key] = obj.to_dict()
+              
     def save(self):
 
         """serializes __objects to the JSON file (path: __file_path)"""
 
-        with open(self.__file_path, 'w+') as outfile:
-        
+        with open(FileStorage.__file_path, "w") as outfile:
+                
             print(self.__objects)
-            
-            json.dump(self.__objects, outfile)
+
+            json.dump(FileStorage.__objects, outfile)
 
     def reload(self):
 
-        """        deserializes the JSON file to __objects (only if 
+        """deserializes the JSON file to __objects (only if 
         the JSON file (__file_path) exists ; otherwise, do nothing"""
 
-        if path.exists(self.__file_path):
+        if path.isfile(FileStorage.__file_path):
             
-            with open(self.__file_path, 'r') as json_file:
+            with open(FileStorage.__file_path, "r") as json_file:
 
-                self.__object = json.load(json_file)
-        
-        else:
-
-            pass
+                FileStorage.__objects = json.load(json_file)
