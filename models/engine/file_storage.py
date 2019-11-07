@@ -24,7 +24,7 @@ class FileStorage():
 
         """sets in __objects the obj with key <obj class name>.id"""
 
-        x = { "{}.{}".format(obj.__class__.__name__, obj.id) }
+        x = { "{}.{}".format(obj.__class__.__name__, obj.id): obj.to_dict() }
         
         x.update(self.__objects)
 
@@ -34,6 +34,8 @@ class FileStorage():
 
         with open(self.__file_path, 'w+') as outfile:
         
+            print(self.__objects)
+            
             json.dump(self.__objects, outfile)
 
     def reload(self):
@@ -43,9 +45,9 @@ class FileStorage():
 
         if path.exists(self.__file_path):
             
-            with open(self.__file_path) as json_file:
+            with open(self.__file_path, 'r') as json_file:
 
-                self.__object = json.load(self.__file_path)
+                self.__object = json.load(json_file)
         
         else:
 
