@@ -2,6 +2,7 @@
 """base module for AirBnB clone"""
 import uuid
 import datetime
+from models import storage
 
 
 class BaseModel:
@@ -30,6 +31,7 @@ class BaseModel:
         the current datetime"""
 
         self.updated_at = datetime.datetime.now()
+        storage.save()
 
     def to_dict(self):
 
