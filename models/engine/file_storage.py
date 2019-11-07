@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 import json
+import os.path
+from os import path
 
 """class that serializes instances to a JSON file
    and deserializes JSON file to instances"""
@@ -9,7 +11,7 @@ class FileStorage():
     
     """class to serialize and deserialize classes and json strings"""
     
-    __file_path = ""
+    __file_path = "file.json"
     __objects = {}
 
     def all(self):
@@ -22,24 +24,28 @@ class FileStorage():
 
         """sets in __objects the obj with key <obj class name>.id"""
 
-        x = {obj: obj.id}
+        x = { "{}.{}".format(obj.__class__.__name__, obj.id) }
         
-        x.update(self._objects)
+        x.update(self.__objects)
 
     def save(self):
 
         """serializes __objects to the JSON file (path: __file_path)"""
 
-        json.dumps(self.__objects, self.__file_path)
+        with open(self.__file_path, 'w+') as outfile:
+        
+            json.dump(self.__objects, outfile)
 
     def reload(self):
 
         """        deserializes the JSON file to __objects (only if 
         the JSON file (__file_path) exists ; otherwise, do nothing"""
 
-        if self.__file_path:
+        if path.exists(self.__file_path):
+            
+            with open(self.__file_path) as json_file:
 
-            __object = json.load(self.__file_path)
+                self.__object = json.load(self.__file_path)
         
         else:
 

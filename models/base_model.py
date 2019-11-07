@@ -18,6 +18,8 @@ class BaseModel:
         self.created_at = datetime.datetime.now()
         self.updated_at = datetime.datetime.now()
 
+        storage.new(self)
+
     def __str__(self):
 
         """string rep method"""
