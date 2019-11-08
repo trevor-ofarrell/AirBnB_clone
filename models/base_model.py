@@ -18,6 +18,8 @@ class BaseModel:
         self.created_at = datetime.datetime.now()
         self.updated_at = datetime.datetime.now()
 
+        storage.new(self)
+
     def __str__(self):
 
         """string rep method"""
@@ -38,12 +40,9 @@ class BaseModel:
         """returns a dictionary containing all keys/values of __dict__
         of the instance"""
 
-        self.updated_at = str(datetime.datetime.isoformat(self.updated_at))
-        self.created_at = str(datetime.datetime.isoformat(self.created_at))
-
-        mydict = self.__dict__
-        x = {self.__class__ : self}
-
-        x.update(mydict)
+        mydict = self.__dict__.copy()
+        mydict["__class__"] = self.__class__.__name__
+        mydict["updated_at"] = self.updated_at.isoformat()
+        mydict["created_at"] = self.created_at.isoformat()
 
         return mydict
