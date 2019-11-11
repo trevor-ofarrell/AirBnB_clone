@@ -15,5 +15,25 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program"""
         return True
 
+    def do_create(self, line):
+        """Create command to exit the program"""
+        return True
+
+    def do_show(self, line):
+        """Quit command to exit the program"""
+        return True
+
+    def do_destroy(self, line):
+        """EOF command to exit the program"""
+        return True
+
+    def do_all(self, line):
+        """Quit command to exit the program"""
+        return True
+
+    def do_update(self, line):
+        """EOF command to exit the program"""
+        return True
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
