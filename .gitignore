@@ -19,6 +19,7 @@
 # Ignore main files
 **/*main.c
 **/*main.py
+**/*.json
 
 # Ignore object files and libraries
 *.o
