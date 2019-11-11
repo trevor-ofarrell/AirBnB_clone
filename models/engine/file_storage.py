@@ -4,7 +4,7 @@
 import json
 import os.path
 from os import path
-
+import models
 
 class FileStorage():
     """class to serialize and deserialize classes and json strings"""
@@ -28,7 +28,7 @@ class FileStorage():
 
     def reload(self):
         """deserializes the JSON file to __objects (only if the JSON
-           file (__file_path) exists ; otherwise, do nothing"""
+        file (__file_path) exists ; otherwise, do nothing"""
         if path.isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, "r") as json_file:
                 FileStorage.__objects = json.load(json_file)
