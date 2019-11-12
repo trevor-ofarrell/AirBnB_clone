@@ -4,6 +4,7 @@ import cmd
 from models.base_model import BaseModel
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """class for command module"""
     prompt = "(hbnb) "
@@ -54,6 +55,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         elif args[0] + "." + args[1] in storage.all().keys():
             del storage.all()[args[0] + "." + args[1]]
+            storage.save()
         else:
             print("** no instance found **")
 
@@ -85,8 +87,10 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 3:
             print("** value missing **")
         elif args[0] + "." + args[1] in storage.all().keys():
-            setattr(storage.all()[args[0] + "." + args[1]], args[2], args[3])
-            
+            setattr(storage.all()[args[0] + "." + args[1]], args[2],
+                    args[3][1:-1] if args[3][0] is '"' or args[3][0] is "'"
+                    else int(args[3]) if not '.' in args[3] else float(args[3]))
+            storage.save()
     
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
