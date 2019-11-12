@@ -56,13 +56,18 @@ class HBNBCommand(cmd.Cmd):
             del storage.all()[args[0] + "." + args[1]]
         else:
             print("** no instance found **")
-        
 
     def do_all(self, line):
         """Prints all string representation of all instances based
         or not on the class name"""
         args = line.split()
-        
+        if args is not None and args != [] and args[0] != "BaseModel":
+            print("** class doesn't exist **")
+        else:
+            strlist = []
+            for obj in storage.all().values():
+                strlist.append(str(obj))
+            print(strlist)
 
     def do_update(self, line):
         """Updates an instance by adding or updating an attribute"""
