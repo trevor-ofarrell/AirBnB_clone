@@ -70,7 +70,7 @@ class HBNBCommand(cmd.Cmd):
             for obj in storage.all().values():
                 strlist.append(str(obj))
             print(strlist)
-            
+
     def do_update(self, line):
         """Updates an instance by adding or updating an attribute"""
         args = line.split()
@@ -89,8 +89,8 @@ class HBNBCommand(cmd.Cmd):
         elif args[0] + "." + args[1] in storage.all().keys():
             setattr(storage.all()[args[0] + "." + args[1]], args[2],
                     args[3][1:-1] if args[3][0] is '"' or args[3][0] is "'"
-                    else int(args[3]) if not '.' in args[3] else float(args[3]))
+                    else float(args[3]) if '.' in args[3] else int(args[3]))
             storage.save()
-    
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
