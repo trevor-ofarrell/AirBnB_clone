@@ -16,7 +16,8 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_create(self, line):
-        """Create command to exit the program"""
+        """Creates a new instance of BaseModel, saves it (to the JSON file)
+        and prints the id"""
         if line == "BaseModel":
             new = BaseModel()
             new.save()
@@ -27,30 +28,55 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, line):
-        """Quit command to exit the program"""
+        """Prints the string representation of an instance based on
+        the class name and id"""
+        args = line.split()
+        if args is None or args == [] or args[0] is None:
+            print("** class name missing **")
+        elif args[0] != "BaseModel":
+            print("** class doesn't exist **")
+        elif len(args) <= 1:
+            print("** instance id missing **")
+        elif args[1] in storage.all(self):
+            print(self.__str__())
+        else:
+            print("** no instance found **")
+
+    def do_destroy(self, line):
+        """Deletes an instance based on the class name and id"""
         args = line.split()
         if not args[0]:
             print("** class name missing **")
-        if args[0] != "BaseModel":
+        elif args[0] != "BaseModel":
             print("** class doesn't exist **")
-        if len(args) <= 1:
+        elif len(args) <= 1:
             print("** instance id missing **")
-        if len(args) > 1 and args[1] in FileStorage.all(self):
-            print(self.__str__())
-        elif len(args) > 1 and args[0] and args[1] not in FileStorage.all(self):
-            print("** no instance found **")            
+        elif args[1] in FileStorage.all(self):
+            print("destroy coming soon")
+        else:
+            print("** no instance found **")
         
-    def do_destroy(self, line):
-        """EOF command to exit the program"""
-        return True
 
     def do_all(self, line):
-        """Quit command to exit the program"""
-        return True
+        """Prints all string representation of all instances based
+        or not on the class name"""
+        args = line.split()
+        
 
     def do_update(self, line):
-        """EOF command to exit the program"""
-        return True
+        """Updates an instance by adding or updating an attribute"""
+        args = line.split()
+        if not args[0]:
+            print("** class name missing **")
+        elif args[0] != "BaseModel":
+            print("** class doesn't exist **")
+        elif len(args) <= 1:
+            print("** instance id missing **")
+        elif args[1] in FileStorage.all(self):
+            print("update coming soon")
+        else:
+            print("** no instance found **")
+        
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
