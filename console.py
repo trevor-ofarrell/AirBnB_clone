@@ -33,12 +33,14 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         if args[0] != "BaseModel":
             print("** class doesn't exist **")
-        if not args[1]:
+        if args[0] and not args[1]:
             print("** instance id missing **")
-        if args[1] == self.id:
-            self.__str__()
-        else if args[]args[]
-
+        if args[1] == BaseModel.id:
+            print(self.__str__())
+        elif args[0] and args[1] != BaseModel.id:
+            print("** no instance found **")
+            
+        
     def do_destroy(self, line):
         """EOF command to exit the program"""
         return True
