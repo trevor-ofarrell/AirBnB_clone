@@ -2,6 +2,7 @@
 """console for airbnb project"""
 import cmd
 from models.base_model import BaseModel
+from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """class for command module"""
@@ -35,24 +36,24 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif args[0] != "BaseModel":
             print("** class doesn't exist **")
-        elif len(args) <= 1:
+        elif len(args) == 1:
             print("** instance id missing **")
-        elif args[1] in storage.all(self):
-            print(self.__str__())
+        elif args[0] + "." + args[1] in storage.all().keys():
+            print(storage.all()["BaseModel." + args[1]])
         else:
             print("** no instance found **")
 
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id"""
         args = line.split()
-        if not args[0]:
+        if args is None or args == [] or args[0] is None:
             print("** class name missing **")
         elif args[0] != "BaseModel":
             print("** class doesn't exist **")
         elif len(args) <= 1:
             print("** instance id missing **")
-        elif args[1] in FileStorage.all(self):
-            print("destroy coming soon")
+        elif args[0] + "." + args[1] in storage.all().keys():
+            del storage.all()[args[0] + "." + args[1]]
         else:
             print("** no instance found **")
         
