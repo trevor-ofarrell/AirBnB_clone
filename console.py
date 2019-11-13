@@ -2,12 +2,14 @@
 """console for airbnb project"""
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
     """class for command module"""
     prompt = "(hbnb) "
+    models = ['BaseModel', 'User']
 
     def do_EOF(self, line):
         """EOF command to exit the program"""
@@ -20,8 +22,11 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, line):
         """Creates a new instance of BaseModel, saves it (to the JSON file)
         and prints the id"""
-        if line == "BaseModel":
-            new = BaseModel()
+        if line in self.models:
+            if line == self.models[0]:
+                new = BaseModel()
+            else:
+                new = User()
             new.save()
             print(new.id)
         elif not line:
@@ -35,12 +40,12 @@ class HBNBCommand(cmd.Cmd):
         args = line.split()
         if args is None or args == [] or args[0] is None:
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+        elif args[0] not in self.models:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
         elif args[0] + "." + args[1] in storage.all().keys():
-            print(storage.all()["BaseModel." + args[1]])
+            print(storage.all()[args[0] + '.' + args[1]])
         else:
             print("** no instance found **")
 
@@ -49,7 +54,7 @@ class HBNBCommand(cmd.Cmd):
         args = line.split()
         if args is None or args == [] or args[0] is None:
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+        elif args[0] not in models:
             print("** class doesn't exist **")
         elif len(args) <= 1:
             print("** instance id missing **")
@@ -63,7 +68,7 @@ class HBNBCommand(cmd.Cmd):
         """Prints all string representation of all instances based
         or not on the class name"""
         args = line.split()
-        if args is not None and args != [] and args[0] != "BaseModel":
+        if args is not None and args != [] and args[0] not in self.models:
             print("** class doesn't exist **")
         else:
             strlist = []
@@ -76,7 +81,7 @@ class HBNBCommand(cmd.Cmd):
         args = line.split()
         if args is None or args == [] or args[0] is None:
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+        elif args[0] not in self.models:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
