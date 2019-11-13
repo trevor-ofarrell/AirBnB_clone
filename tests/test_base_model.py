@@ -28,22 +28,27 @@ class TestBaseModel(unittest.TestCase):
                          datetime.datetime(2019, 11, 13, 1, 25, 18, 335279))
 
     def test_init_defaults(self):
+        base2 = BaseModel()
+        base3 = BaseModel()
+        self.assertIs(type(base2.created_at), datetime.datetime)
+        self.assertIs(type(base3.created_at), datetime.datetime)
+        self.assertNotEqual(base2, base3)
         
 
     def test_str(self):
-        
+        pass
 
     def test_str_instance_attrs(self):
-        
+        pass
 
     def test_save(self):
-        
+        pass
 
     def test_save_instance_attrs(self):
-        
+        pass
 
     def test_to_dict(self):
-        
+        pass
 
     def test_to_dict_instance_attrs(self):
-        
+        pass
