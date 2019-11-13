@@ -39,10 +39,10 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif line in self.newdict.keys():
             new = self.newdict[line]()
+            print(new.id)
+            new.save()
         else:
             print("** class doesn't exist **")
-        print(new.id)
-        new.save()
 
     def do_show(self, line):
         """Prints the string representation of an instance based on

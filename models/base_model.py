@@ -11,6 +11,12 @@ class BaseModel():
     def __init__(self, *args, **kwargs):
         """initialization method"""
         if kwargs:
+            if "created_at" not in kwargs.keys():
+                raise Exception("created_at not passed")
+            if "updated_at" not in kwargs.keys():
+                raise Exception("updated_at not passed")
+            if "id" not in kwargs.keys():
+                raise Exception("id not passed")
             for k, v in kwargs.items():
                 if k == '__class__':
                     pass

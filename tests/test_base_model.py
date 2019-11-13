@@ -2,52 +2,48 @@
 """ Unittest for AirBnB BaseModel class
 """
 import unittest
+import datetime
 from models.base_model import BaseModel
 
 
 class TestBaseModel(unittest.TestCase):
     """ Tests the BaseModel class's methods and attributes. """
 
-"""    @classmethod
-    def setUpClass(cls):
-        cls.b1 = Base()
-        cls.b2 = Base()
-        cls.b21 = Base(21)
-        cls.bNeg3 = Base(-3)
+    """ sets kwargs properly """
+    def setUp(self):
+        self.base1 = BaseModel(number=89,
+                          created_at="2019-11-13T01:25:18.335269",
+                          updated_at="2019-11-13T01:25:18.335279",
+                          id="0e5ad480-ebf5-4bc8-9771-2a0e8daff35d")
 
-    @classmethod
-    def tearDownClass(cls):
-        Base._Base__nb_objects = 0
+    def test_init_insufficient_kwargs(self):
+        with self.assertRaises(Exception):
+            base0 = BaseModel(number=89)
 
-    def test_init(self):
-        self.assertEqual(self.b1.id, 1)
-        self.assertEqual(self.b2.id, 2)
-        self.assertEqual(Base._Base__nb_objects, 2)
+    def test_init_sufficient_kwargs(self):
+        self.assertEqual(self.base1.number, 89)
+        self.assertEqual(self.base1.created_at,
+                         datetime.datetime(2019, 11, 13, 1, 25, 18, 335269))
+        self.assertEqual(self.base1.updated_at,
+                         datetime.datetime(2019, 11, 13, 1, 25, 18, 335279))
 
-    def test_to_json_string(self):
-        self.assertEqual(Base.to_json_string(None), "[]")
-        self.assertEqual(Base.to_json_string([]), "[]")
-        self.assertEqual(Base.to_json_string([{}]), "[{}]")
-        self.assertEqual(Base.to_json_string([{}, {}]), "[{}, {}]")
+    def test_init_defaults(self):
+        
 
-    def test_from_json_string(self):
-        self.assertEqual(Base.from_json_string(None), [])
-        self.assertEqual(Base.from_json_string(""), [])
-        self.assertEqual(Base.from_json_string("[]"), [])
-        self.assertEqual(Base.from_json_string("[{}]"), [{}])
-        self.assertEqual(Base.from_json_string("[{}, {}]"), [{}, {}])
+    def test_str(self):
+        
 
-    def test_save_to_file(self):
-        with self.assertRaises(TypeError):
-            Base.save_to_file()
+    def test_str_instance_attrs(self):
+        
 
-    def test_create(self):
-        with self.assertRaises(TypeError):
-            Base.create()
+    def test_save(self):
+        
 
-    def test_load_from_file(self):
-        self.assertEqual(type(Base.load_from_file()), type([]))
-"""
+    def test_save_instance_attrs(self):
+        
 
-if __name__ == "__main__":
-    unittest.main()
+    def test_to_dict(self):
+        
+
+    def test_to_dict_instance_attrs(self):
+        
