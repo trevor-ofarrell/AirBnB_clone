@@ -13,9 +13,9 @@ class TestBaseModel(unittest.TestCase):
     def setUp(self):
         """ sets kwargs properly """
         self.base1 = BaseModel(number=89,
-                          created_at="2019-11-13T01:25:18.335269",
-                          updated_at="2019-11-13T01:25:18.335279",
-                          id="0e5ad480-ebf5-4bc8-9771-2a0e8daff35d")
+                               created_at="2019-11-13T01:25:18.335269",
+                               updated_at="2019-11-13T01:25:18.335279",
+                               id="0e5ad480-ebf5-4bc8-9771-2a0e8daff35d")
         self.base2 = BaseModel()
         self.base3 = BaseModel()
 
