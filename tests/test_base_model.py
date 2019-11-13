@@ -48,8 +48,8 @@ class TestBaseModel(unittest.TestCase):
                              self.base1.__dict__))
 
     def test_str_instance_attrs(self):
-        adict = {}
-        
+        self.assertNotIn('number', self.base2.__dict__.keys())
+        self.assertIn('number', self.base1.__dict__.keys())
 
     def test_save(self):
         pass
