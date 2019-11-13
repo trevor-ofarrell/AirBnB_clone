@@ -7,6 +7,12 @@ import os.path
 from os import path
 from models.base_model import BaseModel
 from models.user import User
+from models.amenity import Amenity
+from models.city import City
+from models.state import State
+from models.place import Place
+from models.review import Review
+
 
 class FileStorage():
     """class to serialize and deserialize classes and json strings"""
@@ -37,7 +43,7 @@ class FileStorage():
         if path.isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, "r") as json_file:
                 temp = json.load(json_file)
-                newdict = {'BaseModel': BaseModel(), 'User': User(), 'Amenity': Amenity(), 'City': City(), 'State': State(), 'Place': Place(), 'Review': Review()}
+                newdict = {'BaseModel': BaseModel, 'User': User, 'Amenity': Amenity, 'City': City, 'State': State, 'Place': Place, 'Review': Review}
                 for k, v in temp.items():
                     model = k.split('.')
                     FileStorage.__objects[k] = newdict[model[0]](**v)
