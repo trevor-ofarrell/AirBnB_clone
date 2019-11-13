@@ -16,7 +16,13 @@ from models.review import Review
 class HBNBCommand(cmd.Cmd):
     """class for command module"""
     prompt = "(hbnb) "
-    newdict = {'BaseModel': BaseModel, 'User': User, 'Amenity': Amenity, 'City': City, 'State': State, 'Place': Place, 'Review': Review}
+    newdict = {'BaseModel': BaseModel,
+               'User': User,
+               'Amenity': Amenity,
+               'City': City,
+               'State': State,
+               'Place': Place,
+               'Review': Review}
 
     def do_EOF(self, line):
         """EOF command to exit the program"""
@@ -37,14 +43,14 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         print(new.id)
         new.save()
-        
+
     def do_show(self, line):
         """Prints the string representation of an instance based on
         the class name and id"""
         args = line.split()
         if args is None or args == [] or args[0] is None:
             print("** class name missing **")
-        elif args[0] not in self.models:
+        elif args[0] not in self.newdict.keys():
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -72,8 +78,15 @@ class HBNBCommand(cmd.Cmd):
         """Prints all string representation of all instances based
         or not on the class name"""
         args = line.split()
-        if args is not None and args != [] and args[0] not in self.models:
+        if args != [] and args[0] not in self.newdict.keys():
             print("** class doesn't exist **")
+        elif args != []:
+            strlist = []
+            for k, v in storage.all().items():
+                temp = k.split(".")
+                if temp[0] == args[0]:
+                    strlist.append(str(v))
+            print(strlist)
         else:
             strlist = []
             for obj in storage.all().values():

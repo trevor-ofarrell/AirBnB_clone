@@ -2,7 +2,6 @@
 """class that serializes instances to a JSON file
    and deserializes JSON file to instances"""
 import json
-import re
 import os.path
 from os import path
 from models.base_model import BaseModel
@@ -43,7 +42,13 @@ class FileStorage():
         if path.isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, "r") as json_file:
                 temp = json.load(json_file)
-                newdict = {'BaseModel': BaseModel, 'User': User, 'Amenity': Amenity, 'City': City, 'State': State, 'Place': Place, 'Review': Review}
+                newdict = {'BaseModel': BaseModel,
+                           'User': User,
+                           'Amenity': Amenity,
+                           'City': City,
+                           'State': State,
+                           'Place': Place,
+                           'Review': Review}
                 for k, v in temp.items():
                     model = k.split('.')
                     FileStorage.__objects[k] = newdict[model[0]](**v)
