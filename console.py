@@ -78,9 +78,6 @@ class HBNBCommand(cmd.Cmd):
         """Prints all string representation of all instances based
         or not on the class name"""
         args = line.split()
-        if '.' in args:
-            newarg = args.split('.')
-            args[0] = newargs[0]
         if args != [] and args[0] not in self.newdict.keys():
             print("** class doesn't exist **")
         elif args != []:
