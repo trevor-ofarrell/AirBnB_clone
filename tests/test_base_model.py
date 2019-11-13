@@ -42,10 +42,14 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(self.base2.id, self.base3.id)
 
     def test_str(self):
-        pass
+        self.assertEqual(str(self.base1),
+                         "[BaseModel] ({}) {}".format(
+                             "0e5ad480-ebf5-4bc8-9771-2a0e8daff35d",
+                             self.base1.__dict__))
 
     def test_str_instance_attrs(self):
-        pass
+        adict = {}
+        
 
     def test_save(self):
         pass
