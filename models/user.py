@@ -2,6 +2,7 @@
 """user class based off of BaseModel"""
 from models.base_model import BaseModel
 
+
 class User(BaseModel):
 
     email = ""

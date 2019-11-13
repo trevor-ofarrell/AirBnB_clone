@@ -64,9 +64,9 @@ class HBNBCommand(cmd.Cmd):
         args = line.split()
         if args is None or args == [] or args[0] is None:
             print("** class name missing **")
-        elif args[0] not in models:
+        elif args[0] not in self.newdict.keys():
             print("** class doesn't exist **")
-        elif len(args) <= 1:
+        elif len(args) == 1:
             print("** instance id missing **")
         elif args[0] + "." + args[1] in storage.all().keys():
             del storage.all()[args[0] + "." + args[1]]
@@ -96,6 +96,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, line):
         """Updates an instance by adding or updating an attribute"""
         args = line.split()
+        print(len(args))
         if args is None or args == [] or args[0] is None:
             print("** class name missing **")
         elif args[0] not in self.newdict.keys():
