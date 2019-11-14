@@ -50,8 +50,8 @@ class TestState(unittest.TestCase):
         self.assertEqual(new.name, "Holberton")
 
         def test_attrs2(self):
-        new = State()
-        self.assertEqual(new.name, "")
+            new = State()
+            self.assertEqual(new.name, "")
 
     def test_init_insufficient_kwargs(self):
         with self.assertRaises(Exception):
