@@ -54,12 +54,11 @@ class TestUser(unittest.TestCase):
             created_at="2019-11-13T01:25:18.335289",
             updated_at="2019-11-13T01:25:18.335299",
             id="0e5ad480-ebf5-4bc8-9771-2a0e8daff36d")
-
         self.assertEqual(new.password, "root")
         self.assertEqual(new.last_name, "Holberton")
         self.assertEqual(new.first_name, "Betty")
         self.assertEqual(new.email, "airbnb@holbertonschool.com")
-        
+
     def test_init_insufficient_kwargs(self):
         with self.assertRaises(Exception):
             user0 = User(number=89)

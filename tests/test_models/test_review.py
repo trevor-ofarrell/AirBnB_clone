@@ -38,6 +38,23 @@ class TestReview(unittest.TestCase):
         except:
             pass
 
+    def test_attrs(self):
+        new = Review(place_id="Holberton",
+                     user_id="Betty",
+                     text="Holbe",
+                     created_at="2019-11-13T01:25:18.335289",
+                     updated_at="2019-11-13T01:25:18.335299",
+                     id="0e5ad480-ebf5-4bc8-9771-2a0e8daff36d")
+        self.assertEqual(new.place_id, "Holberton")
+        self.assertEqual(new.user_id, "Betty")
+        self.assertEqual(new.text, "Holbe")
+
+    def test_attrs2(self):
+        new = Review()
+        self.assertEqual(new.place_id, "")
+        self.assertEqual(new.user_id, "")
+        self.assertEqual(new.text, "")
+
     def test_init_insufficient_kwargs(self):
         with self.assertRaises(Exception):
             review0 = Review(number=89)
