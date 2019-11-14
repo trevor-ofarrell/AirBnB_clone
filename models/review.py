@@ -12,6 +12,6 @@ class Review(BaseModel):
     @text(str): default=empty string
     """
 
-    state_id = ""
+    place_id = ""
     user_id = ""
     text = ""

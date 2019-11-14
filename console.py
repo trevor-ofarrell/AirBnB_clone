@@ -34,6 +34,12 @@ class HBNBCommand(cmd.Cmd):
         """
         return True
 
+    def emptyline(self):
+        pass
+
+    def help_help(self):
+        print('help with "help cmd".\n')
+
     def do_create(self, line):
         """Creates a new instance of BaseModel, saves it (to the JSON file)
         and prints the id"""
