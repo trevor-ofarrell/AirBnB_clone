@@ -4,6 +4,7 @@
 import unittest
 import datetime
 import uuid
+import os
 from models.base_model import BaseModel
 
 
@@ -12,12 +13,22 @@ class TestBaseModel(unittest.TestCase):
 
     def setUp(self):
         """ sets kwargs properly """
+        try:
+            os.remove("file.json")
+        except:
+            pass
         self.base1 = BaseModel(number=89,
                                created_at="2019-11-13T01:25:18.335269",
                                updated_at="2019-11-13T01:25:18.335279",
                                id="0e5ad480-ebf5-4bc8-9771-2a0e8daff35d")
         self.base2 = BaseModel()
         self.base3 = BaseModel()
+
+    def tearDown(self):
+        try:
+            os.remove("file.json")
+        except:
+            pass
 
     def test_init_insufficient_kwargs(self):
         with self.assertRaises(Exception):

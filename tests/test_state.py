@@ -4,6 +4,7 @@
 import unittest
 import datetime
 import uuid
+import os
 from models.state import State
 
 
@@ -12,6 +13,10 @@ class TestState(unittest.TestCase):
 
     def setUp(self):
         """ sets kwargs properly """
+        try:
+            os.remove("file.json")
+        except:
+            pass
         self.state1 = State(number=89,
                             created_at="2019-11-13T01:25:18.335269",
                             updated_at="2019-11-13T01:25:18.335279",
@@ -25,6 +30,12 @@ class TestState(unittest.TestCase):
                             created_at="2019-11-13T01:25:18.335289",
                             updated_at="2019-11-13T01:25:18.335299",
                             id="0e5ad480-ebf5-4bc8-9771-2a0e8daff36d")
+
+    def tearDown(self):
+        try:
+            os.remove("file.json")
+        except:
+            pass
 
     def test_init_insufficient_kwargs(self):
         with self.assertRaises(Exception):
