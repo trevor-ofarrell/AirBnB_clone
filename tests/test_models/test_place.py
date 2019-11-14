@@ -38,6 +38,47 @@ class TestPlace(unittest.TestCase):
         except:
             pass
 
+    def test_attrs(self):
+        new = Place(name="Holberton",
+                    city_id="tinsletown",
+                    user_id="123456789",
+                    description="sooooooo shiny",
+                    number_rooms=3,
+                    number_bathrooms=1,
+                    max_guest=35,
+                    price_by_night=3000,
+                    latitude=12.34,
+                    longitude=43.21,
+                    amenity_ids=[5, 10, 15],
+                    created_at="2019-11-13T01:25:18.335289",
+                    updated_at="2019-11-13T01:25:18.335299",
+                    id="0e5ad480-ebf5-4bc8-9771-2a0e8daff36d")
+        self.assertEqual(new.name, "Holberton")
+        self.assertEqual(new.city_id, "tinsletown")
+        self.assertEqual(new.user_id, "123456789")
+        self.assertEqual(new.description, "sooooooo shiny")
+        self.assertEqual(new.number_rooms, 3)
+        self.assertEqual(new.number_bathrooms, 1)
+        self.assertEqual(new.max_guest, 35)
+        self.assertEqual(new.price_by_night, 3000)
+        self.assertEqual(new.latitude, 12.34)
+        self.assertEqual(new.longitude, 43.21)
+        self.assertEqual(new.amenity_ids, [5, 10, 15])
+
+    def test_attrs2(self):
+        new = Place()
+        self.assertEqual(new.name, "")
+        self.assertEqual(new.city_id, "")
+        self.assertEqual(new.user_id, "")
+        self.assertEqual(new.description, "")
+        self.assertEqual(new.number_rooms, 0)
+        self.assertEqual(new.number_bathrooms, 0)
+        self.assertEqual(new.max_guest, 0)
+        self.assertEqual(new.price_by_night, 0)
+        self.assertEqual(new.latitude, 0.0)
+        self.assertEqual(new.longitude, 0.0)
+        self.assertEqual(new.amenity_ids, [])
+
     def test_init_insufficient_kwargs(self):
         with self.assertRaises(Exception):
             place0 = Place(number=89)
