@@ -15,12 +15,14 @@ class TestFileStorage(unittest.TestCase):
             os.remove("file.json")
         except:
             pass
+        storage.__class__._FileStorage__objects = {}
 
     def tearDown(self):
         try:
             os.remove("file.json")
         except:
             pass
+        storage.__class__._FileStorage__objects = {}
 
     def test_all_empty(self):
         """test if empty dict"""
@@ -113,7 +115,7 @@ class TestFileStorage(unittest.TestCase):
         for obj_id in all_objs.keys():
             obj = all_objs[obj_id]
             oblist.append(obj)
-        self.assertEqual(type(oblist[0]), type(BaseModel())) 
+        self.assertEqual(type(oblist[0]), type(BaseModel()))
 
     def test_reload_class_nonexist(self):
         oblist = []

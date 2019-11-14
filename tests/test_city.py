@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-""" Unittest for AirBnB City class
-"""
+""" Unittest for AirBnB City class """
 import unittest
 import datetime
 import uuid
 import os
 from models.city import City
+from models.engine.file_storage import FileStorage
+from models import storage
 
 
 class TestCity(unittest.TestCase):

@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-""" Unittest for AirBnB Amenity class
-"""
+""" Unittest for AirBnB Amenity class """
 import unittest
 import datetime
 import uuid
 import os
 from models.amenity import Amenity
+from models.engine.file_storage import FileStorage
+from models import storage
 
 
 class TestAmenity(unittest.TestCase):
