@@ -76,7 +76,6 @@ class TestFileStorage(unittest.TestCase):
         new.my_number = 89
         new.save()
         with open('file.json', 'r') as f:
-            print(storage.all())
             nstr = str(storage.all()).split('-')
             nstr2 = str(f.read()).split('-')
             self.assertEqual(nstr[0][2:], nstr2[0][2:])
@@ -103,7 +102,7 @@ class TestFileStorage(unittest.TestCase):
         new3 = BaseModel()
         new4 = BaseModel()
         newl = list(fr)
-        self.assertEqual(int(newl[0]), 74)
+        self.assertEqual(int(newl[0]), 73)
 
     def test_reload_file_nonexist(self):
         pass
