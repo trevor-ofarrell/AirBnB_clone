@@ -15,7 +15,7 @@ from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     """class for command module"""
-    prompt = "(hbnb) "
+    prompt = "(hbnb)"
     newdict = {'BaseModel': BaseModel,
                'User': User,
                'Amenity': Amenity,
