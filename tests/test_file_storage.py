@@ -108,10 +108,20 @@ class TestFileStorage(unittest.TestCase):
         pass
 
     def test_reload(self):
-        pass
+        oblist = []
+        all_objs = storage.all()
+        for obj_id in all_objs.keys():
+            obj = all_objs[obj_id]
+            oblist.append(obj)
+        self.assertEqual(type(oblist[0]), type(BaseModel())) 
 
     def test_reload_class_nonexist(self):
-        pass
+        oblist = []
+        all_objs = storage.all()
+        for obj_id in all_objs.keys():
+            obj = all_objs[obj_id]
+            oblist.append(obj)
+        self.assertEqual()
 
     def test_reload_not_json(self):
         pass
