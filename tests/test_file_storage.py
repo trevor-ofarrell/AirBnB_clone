@@ -26,18 +26,8 @@ class TestFileStorage(unittest.TestCase):
 
     def test_all_empty(self):
         """test if empty dict"""
-        self.assertEqual(type(storage.all()), dict)
-
-    def test_save_single_obj(self):
-        l = []
-        if os.path.exists('file.json'):
-            os.remove('file.json')
-        num = len(storage.all())
-        l.append(num)
-        fr = frozenset(l)
-        new = BaseModel()
-        newl = list(fr)
-        self.assertEqual(int(newl[0]), 77)
+        self.assertIs(type(storage.all()), dict)
+        self.assertEqual(storage.all(), {})
 
     def test_all(self):
         """test all"""
@@ -72,6 +62,16 @@ class TestFileStorage(unittest.TestCase):
         new.name = "Holberton"
         new.my_number = 89
 
+    def test_save_single_obj(self):
+        storage.new(BaseModel())
+        storage.save()
+        l = []
+        num = len(storage.all())
+        l.append(num)
+        fr = frozenset(l)
+        newl = list(fr)
+        self.assertEqual(int(newl[0]), 1)
+
     def test_save_first(self):
         new = BaseModel()
         new.name = "Holberton"
@@ -83,6 +83,8 @@ class TestFileStorage(unittest.TestCase):
             self.assertEqual(nstr[0][2:], nstr2[0][2:])
 
     def test_save_additional(self):
+        storage.new(BaseModel())
+        storage.save()
         all_objs = storage.all()
         for obj_id in all_objs.keys():
             obj = all_objs[obj_id]
@@ -93,8 +95,10 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(obj2[0], nobj2[0])
 
     def test_save_multiple_objs(self):
-        if os.path.exists('file.json'):
-            os.remove('file.json')
+        storage.new(BaseModel())
+        storage.new(BaseModel())
+        storage.new(BaseModel())
+        storage.save()
         l = []
         num = len(storage.all())
         l.append(num)
@@ -104,29 +108,22 @@ class TestFileStorage(unittest.TestCase):
         new3 = BaseModel()
         new4 = BaseModel()
         newl = list(fr)
-        self.assertEqual(int(newl[0]), 73)
+        self.assertEqual(int(newl[0]), 3)
 
     def test_reload_file_nonexist(self):
         pass
 
     def test_reload(self):
+        model = BaseModel()
+        model.save()
+        storage.__class__._FileStorage__objects = {}
+        storage.reload()
         oblist = []
         all_objs = storage.all()
         for obj_id in all_objs.keys():
             obj = all_objs[obj_id]
             oblist.append(obj)
-        self.assertEqual(type(oblist[0]), type(BaseModel()))
-
-    def test_reload_class_nonexist(self):
-        oblist = []
-        all_objs = storage.all()
-        for obj_id in all_objs.keys():
-            obj = all_objs[obj_id]
-            oblist.append(obj)
-        self.assertEqual()
-
-    def test_reload_not_json(self):
-        pass
+        self.assertIs(type(oblist[0]), type(BaseModel()))
 
 if __name__ == "__main__":
     unittest.main()
