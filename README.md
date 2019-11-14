@@ -1,3 +1,4 @@
+![Alt text](https://github.com/trevor-ofarrell/learning-machine-learning/blob/master/65f4a1dd9c51265f49d0.png)
 ## 0x00. AirBnB clone - The console
 
 Foundations - Higher-level programming
