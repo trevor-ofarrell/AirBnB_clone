@@ -6,5 +6,5 @@ header {
     border-bottom: 1px solid #CCCCCC;
     top:0;
 }    
-.logo { position: absolute; right: 0px; left: 20px; background : url(images/logo.png); }
+.logo { position: absolute; right: 0px; left: 20px; background-image :(images/logo.png); }
 
