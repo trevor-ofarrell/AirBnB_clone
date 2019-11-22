@@ -6,7 +6,6 @@ div.container section.filters {
     border-radius: 4px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 div.container section.filters button {
     font-size: 18px;
