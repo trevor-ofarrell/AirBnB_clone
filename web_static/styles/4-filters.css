@@ -12,7 +12,9 @@ div.container section.filters button {
     width: 20%;
     border: none;
     border-radius: 4px;
-    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     right: 30px
 }
 div.container section.filters button:hover {
