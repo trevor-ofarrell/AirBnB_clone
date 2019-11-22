@@ -5,6 +5,10 @@ header {
     position:absolute;
     border-bottom: 1px solid #CCCCCC;
     top:0;
-    background-image: url(images/logo.png);
 }
 
+#logo {
+    position:absolute;
+    left:0;
+    top:0;
+}
