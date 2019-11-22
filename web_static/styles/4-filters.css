@@ -4,10 +4,6 @@ div.container section.filters {
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 div.container section.filters button {
     font-size: 18px;
