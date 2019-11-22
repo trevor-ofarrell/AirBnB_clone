@@ -3,6 +3,6 @@ header {
     height:70px;
     width:100%;
     position:absolute;
-    border-bottom: 1px #CCCCCC;
+    border-bottom: 1px none #CCCCCC;
     top:0;
 }
