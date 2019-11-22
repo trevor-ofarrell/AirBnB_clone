@@ -11,9 +11,8 @@ div.container section.filters button {
     height: 48px;
     width: 20%;
     border-radius: 4px;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    position:absolute;
     right: 30px
 }
 div.container section.filters button:hover {
