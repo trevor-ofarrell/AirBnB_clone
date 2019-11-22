@@ -7,6 +7,7 @@ div.container section.filters {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 div.container section.filters button {
     font-size: 18px;
@@ -20,4 +21,14 @@ div.container section.filters button {
 }
 div.container section.filters button:hover {
     opacity: 0.9;
+}
+
+.flex-center {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.flex-vertical-center {
+    align-items: center;
 }
