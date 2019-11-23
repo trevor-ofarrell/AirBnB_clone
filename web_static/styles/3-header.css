@@ -8,8 +8,8 @@ header {
 }
 
 }
-#logo {
+header.logo {
     position:absolute;
-    left:20px;
-    top:0;
+    left: 20px;
+    top:40;
 }

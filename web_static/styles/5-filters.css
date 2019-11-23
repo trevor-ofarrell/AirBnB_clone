@@ -24,14 +24,18 @@ div.container section.filters button:hover {
 div.container section.filters div.locations {
     height: 100%;
     width: 25%;
-    border-right: 1px soild black;
+    border-right: 1px solid #DDDDDD;
     position: absolute;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 div.container section.filters div.amenities {
     height: 100%;
     width: 25%;
     position: absolute;
     margin-left: 300px;
+    padding-left: 60px;
+    padding-right: 40px;
 }
 div.container section.filters div.locations h3 {
     font-weight: 600;
@@ -40,6 +44,7 @@ div.container section.filters div.locations h4 {
     font-size: 14px;
     font-weight: 400;
     padding: -35px 0;
+    margin: -10px 0;
 }
 div.container section.filters div.amenities h3 {
     font-weight: 600;
@@ -49,4 +54,5 @@ div.container section.filters div.amenities h4 {
     font-size: 14px;
     font-weight: 400;
     padding: -35px 0;
+    margin: -10px 0;
 }
