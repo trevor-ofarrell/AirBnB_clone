@@ -21,22 +21,19 @@ div.container section.filters button {
 div.container section.filters button:hover {
     opacity: 0.9;
 }
-.container .filters .locations {
-    height: 100%;
+.locations, .amenities {
+    height: 47%;
     width: 25%;
-    border-right: 1px solid #DDDDDD;
     position: absolute;
     padding-left: 40px;
     padding-right: 40px;
 }
-.container .filters .amenities {
-    height: 100%;
-    width: 25%;
-    position: absolute;
+.locations {
+     border-right: 1px solid #DDDDDD;
+}
+.amenities {
     margin-left: 300px;
-    padding-left: 30px;
-    padding-right: 40px;
-    left: 30px;
+    left: 20px;
 }
 div.container section.filters div.locations h3 {
     font-weight: 600;
