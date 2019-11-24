@@ -1,16 +1,23 @@
+.places {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .places h1 {
-    align-text: left;
+    margin-left: -120px;
     font-size: 30px;
 }
 .places article h2 {
+    font-size: 30px;
     align-text: center;
+    margin-left: 120px;
 }
 .places article {
+    vertical-align: -20px;
     width: 390px;
     padding: 20px;
-    margin: 20px;
+    margin: 20px 20px;
     border: 1px solid #FF5A5F;
-    radius: 4px;
-    float: left;
-    position: absolute:
+    border-radius: 4px;
 }
