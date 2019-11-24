@@ -22,7 +22,7 @@ div.container section.filters button:hover {
     opacity: 0.9;
 }
 .locations, .amenities {
-    height: 100%;
+    height: 70px;
     width: 25%;
     position: absolute;
     padding-left: 40px;
@@ -30,6 +30,7 @@ div.container section.filters button:hover {
 }
 .locations {
      border-right: 1px solid #DDDDDD;
+     height: 70px;
 }
 .amenities {
     margin-left: 300px;

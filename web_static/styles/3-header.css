@@ -4,11 +4,7 @@ header {
     width:100%;
     position:absolute;
     border-bottom: 1px solid #CCCCCC;
-    top:0;
-}
-
-}
-.logo {
-    background: url("../images/logo.png")
-    margin-left: 20px;
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    top: 0;
 }
