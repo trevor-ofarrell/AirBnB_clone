@@ -8,8 +8,7 @@ header {
 }
 
 }
-header.logo {
-    position:absolute;
-    left: 20px;
-    top:40;
+.logo {
+    background: url("../images/logo.png")
+    margin-left: 20px;
 }

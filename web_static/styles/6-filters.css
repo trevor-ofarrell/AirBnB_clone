@@ -22,7 +22,7 @@ div.container section.filters button:hover {
     opacity: 0.9;
 }
 .locations, .amenities {
-    height: 47%;
+    height: 100%;
     width: 25%;
     position: absolute;
     padding-left: 40px;
