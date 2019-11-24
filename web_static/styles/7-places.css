@@ -1,10 +1,12 @@
 .places {
+    padding: 40px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
 .places h1 {
+    margin: -20px;
     margin-left: -120px;
     font-size: 30px;
 }
