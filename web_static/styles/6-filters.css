@@ -63,6 +63,17 @@ div.container section.filters div.amenities h4 {
     width: 100%;
     border: 1px solid #DDDDDD;
 }
+.amenities .popover {
+    margin-down: 30px;
+    padding-left: 40px;
+    margin-left: -30px;
+}
+.locations .popover {
+    margin: 24px;
+    margin-left: -41px;
+    margin-down: 30px;
+    padding-right: 40px;
+}
 .popever, ul {
     list-style-type: none;
 }
