@@ -34,8 +34,9 @@ div.container section.filters button:hover {
     width: 25%;
     position: absolute;
     margin-left: 300px;
-    padding-left: 60px;
+    padding-left: 30px;
     padding-right: 40px;
+    left: 30px;
 }
 div.container section.filters div.locations h3 {
     font-weight: 600;
@@ -64,14 +65,14 @@ div.container section.filters div.amenities h4 {
     border: 1px solid #DDDDDD;
 }
 .amenities .popover {
-    margin-down: 30px;
+    margin: 24px;
     padding-left: 40px;
     margin-left: -30px;
 }
 .locations .popover {
     margin: 24px;
     margin-left: -41px;
-    margin-down: 30px;
+    margin-down: 40px;
     padding-right: 40px;
 }
 .popever, ul {
@@ -82,4 +83,18 @@ div.container section.filters div.amenities h4 {
 }
 .locations:hover .popover {
     display: block;
+}
+
+.amenities > .popover > li {
+    margin: 15px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+.locations > .popover > .cites > li {
+    margin: 15x;
+    margin-left: 50px;
+}
+.locations > .popover > ul {
+    padding-bottom: 15px;
+    margin-left: -40px;
 }
